@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class HandMovement : MonoBehaviour
 {
@@ -13,9 +14,11 @@ public class HandMovement : MonoBehaviour
     }
     private Quaternion baseRotation;
     private OVRInput.Controller controller;
+    private GameObject playerCam;
     // Start is called before the first frame update
     void Start()
     {
+        playerCam = this.transform.parent.gameObject;
         baseRotation = transform.rotation;
         controller = IsLeftHand ? OVRInput.Controller.LTouch : OVRInput.Controller.RTouch;
     }
@@ -24,7 +27,7 @@ public class HandMovement : MonoBehaviour
     void Update()
     {
         OVRInput.Update();
-        transform.position = OVRInput.GetLocalControllerPosition(controller);
+        transform.position = playerCam.transform.position + OVRInput.GetLocalControllerPosition(controller);
         transform.rotation = OVRInput.GetLocalControllerRotation(controller);
     }
 }
