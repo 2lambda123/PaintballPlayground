@@ -23,15 +23,35 @@ public class Grabbing : MonoBehaviour
     void Start()
     {
         controller = IsLeftHand ? OVRInput.Controller.LTouch : OVRInput.Controller.RTouch;
-        if (OVRInput.Get(OVRInput.Axis1D.PrimaryHandTrigger, controller) > 0.5f)
-        {
-            
-        }
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        if (OVRInput.Get(OVRInput.Axis1D.PrimaryHandTrigger, controller) > 0.5f) //When trigger clicked
+        {
+            FindClosestHoldable().transform.position = this.transform.position;
+            FindClosestHoldable().transform.rotation = this.transform.rotation;
+        }
+    }
+
+    private GameObject FindClosestHoldable()
+    {
+        GameObject[] goArray;
+        goArray = GameObject.FindGameObjectsWithTag("Holdable");
+        GameObject closest = null;
+        float distance = Mathf.Infinity;
+        Vector3 position = transform.position;
+        foreach (GameObject go in goArray)
+        {
+            Vector3 diff = go.transform.position - position;
+            float curDistance = diff.sqrMagnitude;
+            if (curDistance < distance)
+            {
+                closest = go;
+                distance = curDistance;
+            }
+        }
+        return closest.transform.parent.gameObject;
     }
 }
