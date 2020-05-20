@@ -25,7 +25,7 @@ public class Grabbing : MonoBehaviour
         controller = IsLeftHand ? OVRInput.Controller.LTouch : OVRInput.Controller.RTouch;
         if (OVRInput.Get(OVRInput.Axis1D.PrimaryHandTrigger, controller) > 0.5f)
         {
-            //Grab tag on grip
+            
         }
     }
 
