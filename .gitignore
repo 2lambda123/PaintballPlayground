@@ -43,3 +43,8 @@ ehthumbs.db
 [Dd]esktop.ini
 Corridor/Library/ShaderCache/
 Corridor/Library/metadata/
+
+# =============== #
+# Blender backups #
+# =============== #
+*.blend[1-9]

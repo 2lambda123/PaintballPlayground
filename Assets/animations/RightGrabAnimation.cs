@@ -20,7 +20,7 @@ public class RightGrabAnimation : MonoBehaviour
         {
             if (!anim.GetBool("isRightGrabbing"))
             {
-                anim.SetBool("isRightGrabbing", true);
+                anim.SetTrigger("isRightGrabbing");
             }
         }
         else
