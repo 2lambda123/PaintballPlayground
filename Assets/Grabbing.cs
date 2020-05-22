@@ -28,10 +28,20 @@ public class Grabbing : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        GameObject gun;
         if (OVRInput.Get(OVRInput.Axis1D.PrimaryHandTrigger, controller) > 0.5f) //When trigger clicked
         {
-            FindClosestHoldable().transform.position = this.transform.position;
-            FindClosestHoldable().transform.rotation = this.transform.rotation;
+            gun = FindClosestHoldable();
+            gun.transform.position = this.transform.position;
+            gun.transform.rotation = this.transform.rotation;
+            this.gameObject.tag = "HandHasGun";
+            gun.transform.parent = this.transform;
+        }
+        else
+        {
+            this.gameObject.tag = "Untagged";
+            gun = FindClosestHoldable();
+            gun.transform.parent = null;
         }
     }
 
