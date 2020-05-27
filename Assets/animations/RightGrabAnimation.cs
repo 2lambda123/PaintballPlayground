@@ -6,29 +6,28 @@ public class RightGrabAnimation : MonoBehaviour
 {
 
     private Animator anim;
+    private bool isGrabbing;
 
     // Start is called before the first frame update
     void Start()
     {
-        anim = GetComponentInChildren<Animator>();
+        anim = GetComponent<Animator>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        if( OVRInput.Get(OVRInput.Axis1D.PrimaryHandTrigger) >= 0.01f) 
+        OVRInput.Update();
+        if( OVRInput.Get(OVRInput.Axis1D.SecondaryHandTrigger) >= 0.7f && !isGrabbing) 
         {
-            if (!anim.GetBool("isRightGrabbing"))
-            {
-                anim.SetTrigger("isRightGrabbing");
-            }
+            anim.SetTrigger("isGrabbingRight");
+            isGrabbing = true;
         }
-        else
+        else if (OVRInput.Get(OVRInput.Axis1D.SecondaryHandTrigger) <= 0.7f && isGrabbing)
         {
-            if (anim.GetBool("isRightGrabbing"))
-            {
-                anim.SetBool("isRightGrabbing", false);
-            }
+            anim.SetTrigger("isGrabbingRight");
+            isGrabbing = false;
+            
         }
     }
 }
