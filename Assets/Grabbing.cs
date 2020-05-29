@@ -36,6 +36,9 @@ public class Grabbing : MonoBehaviour
             gun.transform.rotation = this.transform.rotation;
             this.gameObject.tag = "HandHasGun";
             gun.transform.parent = this.transform;
+            gun.GetComponent<Rigidbody>().velocity = Vector3.zero;
+            gun.GetComponent<Rigidbody>().rotation = Quaternion.identity;
+
         }
         else
         {
