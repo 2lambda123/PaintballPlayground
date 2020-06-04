@@ -7,7 +7,7 @@ public class GunPhysics : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        Physics.gravity = new Vector3(0, -0.5f, 0);
+        Physics.gravity = new Vector3(0, -0.8f, 0);
         this.transform.gameObject.AddComponent<Rigidbody>();
         this.GetComponent<Rigidbody>().useGravity = true;
         this.GetComponent<Rigidbody>().mass = 1;
