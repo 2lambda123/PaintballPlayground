@@ -39,6 +39,17 @@ public class Grabbing : MonoBehaviour
             gun.GetComponent<Rigidbody>().velocity = Vector3.zero;
             gun.GetComponent<Rigidbody>().rotation = Quaternion.identity;
 
+            if (isLeftHand)
+            {
+                gun.transform.Rotate(0, 0, -90);
+                gun.transform.Translate(new Vector3(0.05f, 0, 0.07f));
+            }
+            else
+            {
+               gun.transform.Rotate(0, 0, 90);
+               gun.transform.Translate(new Vector3(-0.05f, 0, 0.07f));
+            }
+
         }
         else
         {
