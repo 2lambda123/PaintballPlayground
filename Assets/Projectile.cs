@@ -36,7 +36,7 @@ public class Projectile : MonoBehaviour
                 sphere.transform.localScale = new Vector3(0.2f, 0.2f, 0.2f);
                 sphere.transform.position = barrel.position;
                 sphere.AddComponent<Rigidbody>();
-                sphere.GetComponent<Rigidbody>().AddForce(transform.forward * 1000);
+                sphere.GetComponent<Rigidbody>().AddForce(transform.forward * 800);
                 sphere.AddComponent<MeshFilter>();
                 sphere.AddComponent<MeshCollider>();
                 sphere.AddComponent<MeshRenderer>();
