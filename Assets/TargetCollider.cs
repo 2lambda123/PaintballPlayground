@@ -6,11 +6,13 @@ public class TargetCollider : MonoBehaviour
 {
 
     public bool color;
+    Material material;
 
     // Start is called before the first frame update
     void Start()
     {
         color = false;
+        material = Resources.Load("splatter", typeof(Material)) as Material;
     }
 
    
@@ -18,15 +20,13 @@ public class TargetCollider : MonoBehaviour
     {
         foreach (ContactPoint contact in collision.contacts)
         {
-            GameObject myLine = new GameObject();
-            myLine.transform.position = contact.point;
-            myLine.AddComponent<LineRenderer>();
-            LineRenderer lr = myLine.GetComponent<LineRenderer>();
-            lr.material = new Material(Shader.Find("Particles/Alpha Blended Premultiply"));
-            lr.startWidth = 0.1f;
-            lr.endWidth = 0.1f;
-            lr.SetPosition(0, contact.point);
-            lr.SetPosition(1, contact.point);
+            
+            GameObject cube = GameObject.CreatePrimitive(PrimitiveType.Cube);
+            cube.transform.localScale = new Vector3(0.2f, 0.2f, 0.2f);
+            cube.transform.position = contact.point;
+            cube.AddComponent<MeshFilter>();
+            cube.AddComponent<MeshRenderer>();
+            cube.GetComponent<Renderer>().material = material;
         }
     }
 
