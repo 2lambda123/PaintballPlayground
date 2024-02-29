@@ -1,0 +1,42 @@
+repo_name: 2lambda123/PaintballPlayground
+report_id: 8c27a0abdcd53ef8694cba2ae6e8c6ce
+version: 0.1
+repo_type: Public
+timestamp: '2024-02-29T19:13:47+00:00'
+requested_by: Eyoung119
+provider: github
+branch: Interaction
+detected_tools_count: 3
+tools:
+- name: C#
+  description: Simple, general-purpose, object-oriented programming language for the
+    .NET platform
+  website_url: http://csharp.net
+  open_source: true
+  hosted_saas: false
+  category: Languages & Frameworks
+  sub_category: Languages
+  image_url: https://img.stackshare.io/service/1015/1200px-C_Sharp_wordmark.svg.png
+  detection_source_url: https://github.com/2lambda123/PaintballPlayground
+  detection_source: Repo Metadata
+- name: JavaScript
+  description: Lightweight, interpreted, object-oriented language with first-class
+    functions
+  website_url: https://developer.mozilla.org/en-US/docs/Web/JavaScript
+  open_source: true
+  hosted_saas: false
+  category: Languages & Frameworks
+  sub_category: Languages
+  image_url: https://img.stackshare.io/service/1209/javascript.jpeg
+  detection_source_url: https://github.com/2lambda123/PaintballPlayground
+  detection_source: Repo Metadata
+- name: Git
+  description: Fast, scalable, distributed revision control system
+  website_url: http://git-scm.com/
+  open_source: true
+  hosted_saas: false
+  category: Build, Test, Deploy
+  sub_category: Version Control System
+  image_url: https://img.stackshare.io/service/1046/git.png
+  detection_source_url: https://github.com/2lambda123/PaintballPlayground
+  detection_source: Repo Metadata
